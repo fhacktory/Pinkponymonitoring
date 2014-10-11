@@ -30,6 +30,7 @@ cat src/df.data | grep "/dev/" >> $TMP_FILE
 
 while read line  
 do  
+   line=`echo $line | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g"`
    used=`echo $line | cut -d ' ' -f 5`
    mount=`echo $line | cut -d ' ' -f 6`
    echo "$mount:$used"

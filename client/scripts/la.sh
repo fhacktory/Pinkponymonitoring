@@ -29,5 +29,5 @@ fi
 
 
 # EXEC
-cat src/top.data | grep 'top -' | cut -d ' ' -f 13 | tr ',' '\0'
+cat src/top.data | grep 'top -' | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 10 | tr ',' '\0'
 exit 0

@@ -23,7 +23,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-id_percent=`cat src/top.data | grep "%Cpu(s)" | cut -d ' ' -f 11`
+id_percent=`cat src/top.data | grep "%Cpu(s)" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 8`
 id_percent_round=`echo $id_percent | cut -d '.' -f 1`
 utilisation_percent=$((100 - id_percent_round))
 echo $utilisation_percent

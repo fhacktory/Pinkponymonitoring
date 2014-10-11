@@ -23,11 +23,12 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-used=`cat src/free.data | grep Swap | cut -d ' ' -f 13`
-total=`cat src/free.data | grep Swap | cut -d ' ' -f 13`
+used=`cat src/free.data | grep Swap | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 3`
+total=`cat src/free.data | grep Swap | grep Swap | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2`
 if [[ $total -eq 0 ]]; then
     echo "100"
 else
     used_percent=`echo "$(($used * 100 / $total))"`
+    echo $used_percent
 fi
 exit 0
