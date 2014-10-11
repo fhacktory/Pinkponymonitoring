@@ -5,7 +5,7 @@
 ## Login   <bogira_j@epitech.net>
 ## 
 ## Started on  Wed Jun 25 20:03:09 2014 Bogiraud Julien
-## Last update Sat Oct 11 13:58:19 2014 camill_n
+## Last update Sat Oct 11 16:16:54 2014 camill_n
 ##
 
 CC                  =	g++ -O3
@@ -14,7 +14,7 @@ RM                  =   rm -f
 
 CFLAGS              =	-Wall
 
-CLIB                =   -lpthread
+CLIB                =   -lpthread -lcurl
 
 PPM                 =	ppm
 
@@ -22,7 +22,9 @@ INCLUDE_PPM         =   ./include/
 
 DIR_PPM		    =   ./src/
 
-SRC_PPM	            =	$(DIR_PPM)kernel/main.cpp
+SRC_PPM	            =	$(DIR_PPM)kernel/main.cpp \
+			$(DIR_PPM)network/network.cpp \
+			$(DIR_PPM)config/config.cpp \
 
 OBJ_PPM:=         $(SRC_PPM:$(DIR_PPM)%.cpp=$(DIR_PPM)%.o)
 
