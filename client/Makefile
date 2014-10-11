@@ -5,7 +5,7 @@
 ## Login   <bogira_j@epitech.net>
 ## 
 ## Started on  Wed Jun 25 20:03:09 2014 Bogiraud Julien
-## Last update Sat Oct 11 17:30:31 2014 camill_n
+## Last update Sat Oct 11 22:17:08 2014 camill_n
 ##
 
 CC                  =	clang++ -O3
@@ -23,6 +23,7 @@ INCLUDE_PPM         =   ./include/
 DIR_PPM		    =   ./src/
 
 SRC_PPM	            =	$(DIR_PPM)kernel/main.cpp \
+			$(DIR_PPM)kernel/script.cpp \
 			$(DIR_PPM)network/network.cpp \
 			$(DIR_PPM)config/config.cpp \
 
