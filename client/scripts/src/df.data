@@ -4,7 +4,7 @@ devtmpfs                  3,9G       0  3,9G   0% /dev
 tmpfs                     3,9G    152K  3,9G   1% /dev/shm
 tmpfs                     3,9G   1004K  3,9G   1% /run
 tmpfs                     3,9G       0  3,9G   0% /sys/fs/cgroup
-tmpfs                     3,9G    1,4M  3,9G   1% /tmp
+tmpfs                     3,9G    1,5M  3,9G   1% /tmp
 /dev/sda1                 477M    118M  330M  27% /boot
 /dev/mapper/fedora-home   219G    6,9G  201G   4% /home
 /dev/sda7                  79G     26G   50G  34% /run/media/camill_n/5c1be222-3ce0-4181-925b-c458f62a0f76

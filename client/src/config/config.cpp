@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Sat Oct 11 21:58:36 2014 camill_n
+// Last update Sat Oct 11 23:19:39 2014 camill_n
 //
 
 #include <iostream>
@@ -105,6 +105,7 @@ void	ConfigController::SetDataInFile(string *fileName, string *dataName, string 
   if (file)
     {
       file << dataName->data() << "," << dataValue->data() << endl;
+      file.close();
     }
 }
 

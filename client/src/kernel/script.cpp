@@ -5,13 +5,14 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sat Oct 11 23:07:11 2014 camill_n
+// Last update Sun Oct 12 00:10:44 2014 camill_n
 //
 
 #include "../../include/global.hpp"
 #include <stdlib.h>
 #include <algorithm>
 #include <string>
+#include <fstream>
 
 bool		ScriptController::ManageRequestStack(NetworkController *network)
 {
@@ -32,6 +33,10 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 	      if (this->IsAlreadyEnable(currentRequest[1]) == false)
 		this->currentScript.push_back(string(currentRequest[1].data()));
 	    }
+	  // DEL COMMAND
+	  if (currentRequest[0].compare("del") == 0)
+	    {
+	    }
 	}
     }
   return (true);
@@ -51,8 +56,6 @@ bool	ScriptController::IsAlreadyEnable(string needle)
 {
   string str;
 
-  cout << "Script Enable:" << endl;
-
   for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
       str = *it;
@@ -66,18 +69,24 @@ string *ScriptController::ExecScript()
 {
   string *formatLine;
   string scriptName;
+  string buffer;
+  string outputFile("test");
 
   for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
       formatLine = new string("./scripts/");
       scriptName = *it;
       formatLine->append(scriptName);
-      formatLine->append(" >> test");
+      formatLine->append(" >> " + outputFile);
+      cout << "COMMAND EXEC: " << formatLine->data() << endl;
       system(formatLine->data());
-      ifstream file ("test");
+      ifstream file(outputFile.data());
       if (file)
 	{
-	  
+	  getline(file, buffer);
+	  cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
+	  file.close();
+	  remove(outputFile.data());
 	}
       free(formatLine);
     }
