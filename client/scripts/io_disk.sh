@@ -28,5 +28,10 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14
+if [ -s "src/io.data" ]; then
+    cat src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14
+else
+    echo "NO DATA: iostat(pkg sysstat)"
+    exit 1
+fi
 exit 0

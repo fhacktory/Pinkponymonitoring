@@ -16,6 +16,11 @@ if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: grep"
     exit 1
 fi
+command -v sed 2>&1 >> /dev/null 
+if [[ $? -ne 0 ]]; then
+    echo "COMMAND NOT FOUND: sed"
+    exit 1
+fi
 command -v cut 2>&1 >> /dev/null 
 if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: cut"
@@ -23,5 +28,5 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/free.data | grep Mem | cut -d ' ' -f 54
+cat src/free.data | grep Mem | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 7
 exit 0

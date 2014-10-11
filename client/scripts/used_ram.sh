@@ -16,6 +16,11 @@ if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: grep"
     exit 1
 fi
+command -v sed 2>&1 >> /dev/null 
+if [[ $? -ne 0 ]]; then
+    echo "COMMAND NOT FOUND: sed"
+    exit 1
+fi
 command -v cut 2>&1 >> /dev/null 
 if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: cut"
@@ -23,8 +28,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-used=`cat src/free.data | grep Mem | cut -d ' ' -f 19`
-total=`cat src/free.data | grep "Mem:" | cut -d ' ' -f 11`
+used=`cat src/free.data | grep "buffers/cach" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 3`
+total=`cat src/free.data | grep "Mem:" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2`
 used_percent=`echo "$(($used * 100 / $total))"`
 echo $used_percent
 exit 0

@@ -16,6 +16,11 @@ if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: grep"
     exit 1
 fi
+command -v sed 2>&1 >> /dev/null 
+if [[ $? -ne 0 ]]; then
+    echo "COMMAND NOT FOUND: sed"
+    exit 1
+fi
 command -v cut 2>&1 >> /dev/null 
 if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: cut"
@@ -29,5 +34,5 @@ fi
 
 
 # EXEC
-cat src/top.data | grep 'top -' | cut -d ' ' -f 13 | tr ',' '\0'
+cat src/top.data | grep 'top -' | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 10 | tr ',' '\0'
 exit 0
