@@ -23,5 +23,5 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/top.data | grep Tasks | cut -d ' ' -f 3
+cat src/top.data | grep Tasks | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2
 exit 0
