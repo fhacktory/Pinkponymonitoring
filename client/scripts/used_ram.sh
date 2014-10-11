@@ -23,8 +23,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-used=`cat src/free.data | grep Mem | cut -d ' ' -f 19`
-total=`cat src/free.data | grep "Mem:" | cut -d ' ' -f 11`
+used=`cat src/free.data | grep "buffers/cach" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 3`
+total=`cat src/free.data | grep "Mem:" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2`
 used_percent=`echo "$(($used * 100 / $total))"`
 echo $used_percent
 exit 0
