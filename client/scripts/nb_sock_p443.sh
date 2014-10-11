@@ -6,8 +6,8 @@
 ./scripts/src/init.sh
 
 # VAR
-TMP_PATH="/tmp/nb_sock_p80.tmp"
-PORT=80
+TMP_PATH="/tmp/nb_sock_p443.tmp"
+PORT=443
 
 # CHECK
 command -v netstat 2>&1 >> /dev/null 
