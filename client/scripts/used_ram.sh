@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 
@@ -28,8 +28,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-used=`cat src/free.data | grep "buffers/cach" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 3`
-total=`cat src/free.data | grep "Mem:" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2`
+used=`cat scripts/src/free.data | grep "buffers/cach" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 3`
+total=`cat scripts/src/free.data | grep "Mem:" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2`
 used_percent=`echo "$(($used * 100 / $total))"`
 echo $used_percent
 exit 0

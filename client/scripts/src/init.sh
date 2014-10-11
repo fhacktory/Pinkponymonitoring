@@ -1,4 +1,4 @@
-top -n 1 > src/top.data
-free -m > src/free.data
-df -h > src/df.data
-iostat -x > src/io.data 2>/dev/null
+top -n 1 > scripts/src/top.data
+free -m > scripts/src/free.data
+df -h > scripts/src/df.data
+iostat -x > scripts/src/io.data 2>/dev/null

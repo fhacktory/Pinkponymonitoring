@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 
@@ -28,7 +28,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-id_percent=`cat src/top.data | grep "%Cpu(s)" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 8`
+id_percent=`cat scripts/src/top.data | grep "%Cpu(s)" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 8`
 id_percent_round=`echo $id_percent | cut -d '.' -f 1`
 utilisation_percent=$((100 - id_percent_round))
 echo $utilisation_percent

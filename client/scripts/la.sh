@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 
@@ -34,5 +34,5 @@ fi
 
 
 # EXEC
-cat src/top.data | grep 'top -' | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 10 | tr ',' '\0'
+cat scripts/src/top.data | grep 'top -' | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 10 | tr ',' '\0'
 exit 0

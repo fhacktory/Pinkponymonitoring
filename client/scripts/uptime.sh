@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 

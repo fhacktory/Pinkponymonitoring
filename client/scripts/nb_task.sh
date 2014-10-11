@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 
@@ -28,5 +28,5 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/top.data | grep Tasks | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2
+cat scripts/src/top.data | grep Tasks | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 2
 exit 0

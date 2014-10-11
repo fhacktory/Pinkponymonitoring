@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # CHECK
 command -v cat 2>&1 >> /dev/null 
@@ -28,8 +28,8 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-if [ -s "src/io.data" ]; then
-    cat src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14
+if [ -s "scripts/src/io.data" ]; then
+    cat scripts/src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14
 else
     echo "NO DATA: iostat(pkg sysstat)"
     exit 1

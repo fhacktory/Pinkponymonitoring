@@ -3,7 +3,7 @@
 #
 
 # INIT
-./src/init.sh
+./scripts/src/init.sh
 
 # VAR
 TMP_FILE="src/df.data.tmp"
@@ -31,7 +31,7 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/df.data | grep "/dev/" >> $TMP_FILE
+cat scripts/src/df.data | grep "/dev/" >> $TMP_FILE
 
 while read line  
 do  
