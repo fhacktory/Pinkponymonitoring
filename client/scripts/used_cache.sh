@@ -16,6 +16,11 @@ if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: grep"
     exit 1
 fi
+command -v sed 2>&1 >> /dev/null 
+if [[ $? -ne 0 ]]; then
+    echo "COMMAND NOT FOUND: sed"
+    exit 1
+fi
 command -v cut 2>&1 >> /dev/null 
 if [[ $? -ne 0 ]]; then
     echo "COMMAND NOT FOUND: cut"
