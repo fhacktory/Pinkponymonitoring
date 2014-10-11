@@ -23,5 +23,5 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # EXEC
-cat src/free.data | grep Mem | cut -d ' ' -f 54
+cat src/free.data | grep Mem | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 7
 exit 0
