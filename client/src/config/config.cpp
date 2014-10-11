@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Sat Oct 11 18:51:22 2014 camill_n
+// Last update Sat Oct 11 21:58:36 2014 camill_n
 //
 
 #include <iostream>
@@ -98,13 +98,13 @@ string	*ConfigController::GetDataInFile(string *fileName, string *dataName)
   return (NULL);
 }
 
-void	SetDataInFile(string *fileName, string *dataName, string *dataValue)
+void	ConfigController::SetDataInFile(string *fileName, string *dataName, string *dataValue)
 {
   ofstream		file(fileName->data());
 
   if (file)
     {
-      file << dataName << "," << dataValue << endl;
+      file << dataName->data() << "," << dataValue->data() << endl;
     }
 }
 
@@ -116,6 +116,7 @@ ConfigController::ConfigController(NetworkController *network)
 
   //TODO: CONFIG API ADDR
   this->addAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/add_new_client/");
+  this->getAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/send_info_server/");
   if (token)
     {
       this->token = token;
@@ -123,6 +124,7 @@ ConfigController::ConfigController(NetworkController *network)
   else
     {
       this->token = network->GenerateNewToken(this->addAPI);
+      this->SetDataInFile(new string(".token"), new string("token"), this->token);
     }
 
   if (!this->token)

@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:25:22 2014 camill_n
-// Last update Sat Oct 11 18:45:54 2014 camill_n
+// Last update Sat Oct 11 21:44:55 2014 camill_n
 //
 
 #ifndef CONFIG_H_
@@ -35,7 +35,9 @@ public:
   void	 SetsetAPI(string *addr);
   string *GetsetAPI();
   string *GetDataInFile(string *fileName, string *dataName);
-  void	 SetDataInFile(string *fileName, string *dataName, string dataValue);
+  void	 SetDataInFile(string *fileName, string *dataName, string *dataValue);
 };
+
+int	Split(vector<string>&vecteur, string buffer, char sep);
 
 #endif
