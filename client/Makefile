@@ -5,10 +5,10 @@
 ## Login   <bogira_j@epitech.net>
 ## 
 ## Started on  Wed Jun 25 20:03:09 2014 Bogiraud Julien
-## Last update Sat Oct 11 16:16:54 2014 camill_n
+## Last update Sat Oct 11 17:30:31 2014 camill_n
 ##
 
-CC                  =	g++ -O3
+CC                  =	clang++ -O3
 
 RM                  =   rm -f
 
