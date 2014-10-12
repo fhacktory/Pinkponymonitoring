@@ -2,7 +2,7 @@ Sys. de fichiers        Taille Utilisé Dispo Uti% Monté sur
 /dev/mapper/fedora-root    50G    5,7G   41G  13% /
 devtmpfs                  3,9G       0  3,9G   0% /dev
 tmpfs                     3,9G    152K  3,9G   1% /dev/shm
-tmpfs                     3,9G   1004K  3,9G   1% /run
+tmpfs                     3,9G   1012K  3,9G   1% /run
 tmpfs                     3,9G       0  3,9G   0% /sys/fs/cgroup
 tmpfs                     3,9G    1,5M  3,9G   1% /tmp
 /dev/sda1                 477M    118M  330M  27% /boot

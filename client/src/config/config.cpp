@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Sat Oct 11 23:19:39 2014 camill_n
+// Last update Sun Oct 12 01:15:52 2014 camill_n
 //
 
 #include <iostream>
@@ -118,6 +118,7 @@ ConfigController::ConfigController(NetworkController *network)
   //TODO: CONFIG API ADDR
   this->addAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/add_new_client/");
   this->getAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/send_info_server/");
+  this->setAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/push_track/");
   if (token)
     {
       this->token = token;

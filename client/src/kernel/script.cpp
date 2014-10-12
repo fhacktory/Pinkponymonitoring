@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sun Oct 12 00:10:44 2014 camill_n
+// Last update Sun Oct 12 01:37:04 2014 camill_n
 //
 
 #include "../../include/global.hpp"
@@ -31,12 +31,21 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 	  if (currentRequest[0].compare("add") == 0)
 	    {
 	      if (this->IsAlreadyEnable(currentRequest[1]) == false)
-		this->currentScript.push_back(string(currentRequest[1].data()));
+		this->currentScript.push_back(currentRequest[1]);
 	    }
-	  // DEL COMMAND
-	  if (currentRequest[0].compare("del") == 0)
-	    {
-	    }
+	  // // DEL COMMAND
+	  // if (currentRequest[0].compare("del") == 0)
+	  //   {
+	  //     bool	lastElement = false;
+
+	  //     for (std::vector<string>::iterator it = this->currentScript.begin(); !lastElement && it != this->currentScript.end(); ++it)
+	  // 	{
+	  // 	  if (currentRequest[1].compare((string)*it) == 0)
+	  // 	    {
+	  // 	      this->currentScript.erase(it);
+	  // 	    }
+	  // 	}
+	  //   }
 	}
     }
   return (true);
@@ -65,12 +74,22 @@ bool	ScriptController::IsAlreadyEnable(string needle)
   return (false);
 }
 
-string *ScriptController::ExecScript()
+bool	ScriptController::SaveResponse(string *saveData, string cmdName, string response)
+{
+  saveData->append(cmdName);
+  saveData->append("%20");
+  saveData->append(response);
+  saveData->append(":");
+  return (true);
+}
+
+string *ScriptController::ExecScript(NetworkController *network, ConfigController *config)
 {
   string *formatLine;
   string scriptName;
   string buffer;
   string outputFile("test");
+  string saveData("");
 
   for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
@@ -85,9 +104,11 @@ string *ScriptController::ExecScript()
 	{
 	  getline(file, buffer);
 	  cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
+	  this->SaveResponse(&saveData, scriptName, buffer);
 	  file.close();
 	  remove(outputFile.data());
 	}
+      network->WriteAPI(&saveData, config->GetsetAPI(), config->GetToken());
       free(formatLine);
     }
 }

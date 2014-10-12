@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:36:07 2014 camill_n
-// Last update Sat Oct 11 23:04:10 2014 camill_n
+// Last update Sun Oct 12 01:11:51 2014 camill_n
 //
 
 #ifndef KERNEL_H_
@@ -22,7 +22,8 @@ public:
   void		ShowScriptEnable();
   bool		ManageRequestStack(NetworkController *network);
   bool		IsAlreadyEnable(string needle);
-  string	*ExecScript();
+  bool		SaveResponse(string *saveData, string cmdName, string response);
+  string	*ExecScript(NetworkController *network, ConfigController *config);
 };
 
 class KernelController

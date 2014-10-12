@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 13:41:31 2014 camill_n
-// Last update Sun Oct 12 00:09:33 2014 camill_n
+// Last update Sun Oct 12 01:11:15 2014 camill_n
 //
 
 #include <iostream>
@@ -27,7 +27,7 @@ void	daemon(KernelController *kernel)
       kernel->network->ReadAPI(kernel->config->GetGetAPI(), kernel->config->GetToken());
       kernel->script->ManageRequestStack(kernel->network);
       //kernel->script->ShowScriptEnable();
-      kernel->script->ExecScript();
+      kernel->script->ExecScript(kernel->network, kernel->config);
       usleep(1000000);
       ++i;
     }
