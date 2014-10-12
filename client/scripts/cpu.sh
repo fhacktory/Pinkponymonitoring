@@ -30,6 +30,6 @@ fi
 # EXEC
 id_percent=`cat scripts/src/top.data | grep "%Cpu(s)" | tr -s ' ' | cut -d ' ' -f 8`
 id_percent_round=`echo $id_percent | cut -d '.' -f 1`
-utilisation_percent=$((100 - id_percent_round))
+utilisation_percent=$((100 - $id_percent_round))
 echo $utilisation_percent
 exit 0
