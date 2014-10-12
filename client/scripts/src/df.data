@@ -1,12 +1,7 @@
-Sys. de fichiers        Taille Utilisé Dispo Uti% Monté sur
-/dev/mapper/fedora-root    50G    5,7G   41G  13% /
-devtmpfs                  3,9G       0  3,9G   0% /dev
-tmpfs                     3,9G    152K  3,9G   1% /dev/shm
-tmpfs                     3,9G   1012K  3,9G   1% /run
-tmpfs                     3,9G       0  3,9G   0% /sys/fs/cgroup
-tmpfs                     3,9G    1,5M  3,9G   1% /tmp
-/dev/sda1                 477M    118M  330M  27% /boot
-/dev/mapper/fedora-home   219G    6,9G  201G   4% /home
-/dev/sda7                  79G     26G   50G  34% /run/media/camill_n/5c1be222-3ce0-4181-925b-c458f62a0f76
-/dev/sda8                 9,8G    6,3G  3,1G  68% /run/media/camill_n/fb1d8ae1-3797-4665-a1dd-45330305f356
-/dev/sda5                 9,8G    7,1G  2,2G  77% /run/media/camill_n/fb1d8ae1-3797-4665-a1dd-45330305f3561
+Filesystem         Size  Used Avail Use% Mounted on
+/dev/ploop16443p1  9.9G  1.6G  7.9G  17% /
+none               1.5G  4.0K  1.5G   1% /dev
+none               300M  1.3M  299M   1% /run
+none               5.0M     0  5.0M   0% /run/lock
+none               600M     0  600M   0% /run/shm
+none               100M     0  100M   0% /run/user

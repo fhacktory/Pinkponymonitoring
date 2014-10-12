@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Affiche le % d'utilisation des IO disque
 #

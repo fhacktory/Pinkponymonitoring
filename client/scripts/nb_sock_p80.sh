@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Nb de connexion établie sur le port 21
 #

@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Affiche le nombre d'utilisateurs connectés
 #
