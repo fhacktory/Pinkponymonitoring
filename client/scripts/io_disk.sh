@@ -29,7 +29,7 @@ fi
 
 # EXEC
 if [ -s "scripts/src/io.data" ]; then
-    cat scripts/src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14
+    cat scripts/src/io.data | grep sd | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 14 | tr ',' '.'
 else
     echo "NO DATA: iostat(pkg sysstat)"
     exit 1
