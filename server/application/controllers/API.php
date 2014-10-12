@@ -16,7 +16,7 @@ class API extends CI_Controller {
 		{
 			$quest = $this->Webservices_model->get_last_quest($token);
 			foreach ($quest as $q) {
-				echo $q->request . '</br>';
+				echo $q->request . ';';
 				$this->Webservices_model->remove_quest($q->id);
 			}
 			exit();
@@ -25,16 +25,32 @@ class API extends CI_Controller {
 			$this->_show_error("666", "Invalid Token");
 	}
 
-	public function push_track($token = false, $type = false, $value = false)
+	public function push_track($token = false, $value = false)
 	{
-		if (!$token || !$type || !$value)
+		if (!$token || !$value)
 			$this->_show_error("665", "Invalid Arguments");
 		if ($this->_token_autentif($token))
 		{
-			$array = array(	'server_key' => $token,
-							'type' => $type,
-							'value' => $value);
-			$this->Webservices_model->add_track_value($array);
+			$value = substr($value,0,strlen($value)-1);
+			$array = explode(":", $value);
+			foreach ($array as $val) {
+				// $value = str_replace("%20", " ", $val);
+				$value = explode("~", $val);
+				print_r($value);
+				$info = $this->Webservices_model->check_old_value($token, $value[0]);
+				if ($info)
+				{
+					$array = array('value' => $value[1]);
+					$this->Webservices_model->edit_track_value($info->id, $array);
+				}
+				else
+				{
+					$array = array(	'server_key' => $token,
+									'type' => $value[0],
+									'value' => $value[1]);
+					$this->Webservices_model->add_track_value($array);
+				}
+			}
 			echo 'ok';
 			exit();
 		}
@@ -53,7 +69,7 @@ class API extends CI_Controller {
 						'state' => 0);
 		$id = $this->Webservices_model->add_new_server($array);
 
-		// $this->_add_default_param($key);
+		$ret = $this->_add_default_param($key);
 
 		$ret = array('return' => 'success', 'app_key' => $key);
 		echo $key;
@@ -79,7 +95,18 @@ class API extends CI_Controller {
 
 	private function _add_default_param($key)
 	{
-		$config = $this->Webservices_mode->get_config("default");
+
+		$config = $this->Webservices_model->get_config("default");
+		$val = explode(",", $config->tracker);
+
+		foreach ($val as $c) {
+			$array = array('server_key' => $key, 'request' => 'add '.$c);
+			$id = $this->Webservices_model->add_quest($array);
+			$array2 = array('server_key' => $key, 'type' => $c, 'value' => 0);
+			$id = $this->Webservices_model->add_track_value($array2);
+		}
+		
+		return (true);
 	}
 
 	private function _show_json($json)
