@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pink Pony Monitoring - Oakley</title>
+	<title>Pink Pony Monitoring</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" type="image/gif" href="images/favicon.ico" />
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main1.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css'); ?>">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -28,16 +28,19 @@
 		    	<li class="active"><a href="#">Tableau de bord</a></li>
 		    	<li><a href="<?php echo site_url('home/admin'); ?>">Administration</a></li>
 		    </ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><div id="KEYAPI">KEY : 085A42</div></li>
-			</ul>
 	    </div>
 	</nav>
 </div>
 <div id="dash">
-<?php foreach ($client as $c) { ?>
+<?php 
+$j = 1;
+foreach ($client as $c) { ?>
 
+	<?php if ($j % 2 == 0) {?>
+	<div id="dash-4-right">
+	<?php } else { ?>
 	<div id="dash-4">
+	<?php } ?>
 		<div id="dash-content-serveur" class="content">
 			<div class="title"><?php echo $c->name; ?></div>
 			<div class="data-ok">OK</div>
@@ -50,7 +53,7 @@
 			foreach ($tracker as $t) {
 				if ($i < 6) {
 		?>
-		<div id="dash-content-data<?php echo $i; ?>" class="content">
+			<div id="dash-content-data<?php echo $i; ?>" class="content">
 			<div class="title"><span <?php echo 'id="til-'.$t->server_key.'-'.str_replace(".", "-", $t->type).'"'; ?>><?php echo $t->type; ?></span></div>
 			<div class="data"><span <?php echo 'id="val-'.$t->server_key.'-'.str_replace(".", "-", $t->type).'"'; ?>></span></div>
 		</div>
@@ -59,7 +62,7 @@
 		$i++; ?>
 		<?php } ?>
 	</div>
-<?php } ?>	
+<?php $j++; } ?>	
 </div>
 <center>
 	<?php $remote = urlencode('http://77.194.204.33:11080/PPM/index.php/home/index_mobile/'.$token.''); ?>

@@ -24,9 +24,6 @@
 		    	<li><a href="<?php echo site_url(); ?>">Tableau de bord</a></li>
 		    	<li class="active"><a href="#">Administration</a></li>
 		    </ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><div id="KEYAPI">KEY : 085A42</div></li>
-			</ul>
 	    </div>
 	</nav>
 </div>
@@ -48,7 +45,7 @@
 			<p id="Serveur-Name"><?php echo $s->host; ?> - <span id="Serveur-Name-Color"><?php echo $s->name; ?></span></p>
 			<a id="Serveur-Supr" href="<?php echo site_url('home/remove_server/'.$s->key) ?>">Supprimer</a>
 			<a id="Serveur-Edit" href="<?php echo site_url('home/edit/'.$s->key) ?>">Editer</a>
-			<a id="Serveur-Hide" href="#">Cacher</a>
+			<!-- <a id="Serveur-Hide" href="#">Cacher</a> -->
 		</div>
 		<?php } ?>
 	</div>

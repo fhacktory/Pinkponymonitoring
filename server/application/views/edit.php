@@ -18,15 +18,33 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/vex-theme-os.css'); ?>" />
 	<script type="text/javascript">
     	$(document).ready(function() {
-    		$('#Edit-Sondes-1-desactiver').hide();
-    		$('#Edit-Sondes-1').hover(function() {
-    			$('#Edit-Sondes-1-desactiver').show();
+    		<?php 
+			$i = 1;
+			foreach ($track as $t) { ?>
+    		$('#Edit-Sondes-<?php echo $i; ?>-desactiver').hide();
+    		$('#Edit-Sondes-<?php echo $i; ?>').hover(function() {
+    			$('#Edit-Sondes-<?php echo $i; ?>-desactiver').show();
     			// $('#Edit-Sondes-1').css({opacity: 0.5});
-    			$('#Edit-Sondes-1').fadeTo(500,0.7);;
+    			$('#Edit-Sondes-<?php echo $i; ?>').fadeTo(500,0.7);;
     		}, function() {
-	    		$('#Edit-Sondes-1-desactiver').hide();
-    			$('#Edit-Sondes-1').fadeTo(500,1);;
+	    		$('#Edit-Sondes-<?php echo $i; ?>-desactiver').hide();
+    			$('#Edit-Sondes-<?php echo $i; ?>').fadeTo(500,1);;
 	    	});
+	    	$('#Edit-Sondes-<?php echo $i; ?>').click(function() {
+	    		$.ajax({
+					type: 'GET',
+	            	url: '<?php echo site_url("home/del_track_edit/".$client->key."/".$t->type);?>',
+	           		dataType: 'json',
+	            	success: function(response) {
+            			window.location.href = "http://77.194.204.33:11080/PPM/index.php/home/edit/"+token;
+           			}
+				});
+	    	});
+    		<?php $i++; } ?>
+    		
+    		
+
+
     		$('#Edit-Sondes-Add').hover(function() {
     			$('#Edit-Sondes-Add').fadeTo(500,0.7);;
     		}, function() {
@@ -119,9 +137,7 @@
 		    	<li><a href="<?php echo site_url(); ?>">Tableau de bord</a></li>
 		    	<li class="active"><a href="<?php echo site_url('home/admin'); ?>">Administration</a></li>
 		    </ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><div id="KEYAPI">KEY : 085A42</div></li>
-			</ul>
+			
 	    </div>
 	</nav>
 </div>
@@ -137,7 +153,10 @@
 		<?php 
 		$i = 1;
 		foreach ($track as $t) { ?>
-		<div id="Edit-Sondes-<?php echo $i; ?>" class="content-sondes"><?php echo $t->type; ?></div>	
+		<?php if ($i == 7) {
+			$i = 1;
+			} ?>
+		<div id="Edit-Sondes-<?php echo $i; ?>" class="content-sondes"><?php echo $t->type; ?><div id="Edit-Sondes-<?php echo $i; ?>-desactiver" class="desactiver">Désactiver</div></div>	
 		<?php $i++;
 		} ?>	
 		<div id="Edit-Sondes-Add" class="content">Ajoutez une sonde</div>		

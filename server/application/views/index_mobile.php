@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Appart</title>
+	<title>Remote Control</title>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css'); ?>">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body class="remote">
 	<?php if ($aut != 0) {?> 
 	<h1>Remote Control</h1>
+	<h2>Pink Pony Monitoring</h2>
 	<ul class="server">
 
 		<?php

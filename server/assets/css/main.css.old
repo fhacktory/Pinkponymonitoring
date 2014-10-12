@@ -1,5 +1,5 @@
 body {
-	background-color: #355362 !important;
+	background-color: #f2d18e;
 	padding: 0px;
 	margin: 0px;
 }
@@ -27,7 +27,6 @@ div#header {
 div#dash {
 	font-family: 'Oswald';
 	font-size: 19px;
-	margin: 1%;
 }
 div#dash-1 {
 	margin: 2%;
@@ -43,23 +42,14 @@ div#dash-2 {
 	display: inline-block;
 }
 div#dash-4 {
+	margin: 2%;
 	position: relative;
-	width: 49%;
+	width: 45%;
 	height: 366px;
 	display: inline-block;
 	color: #EEEEEE;
+	background-color: #000000;
 	vertical-align: top;
-	float: left;
-}
-div#dash-4-right {
-	margin: 0%;
-	position: relative;
-	width: 49%;
-	height: 366px;
-	display: inline-block;
-	color: #EEEEEE;
-	vertical-align: top;
-	float: right;
 }
 
 /* TUILES CONTENT TITLE DATA */
@@ -71,97 +61,60 @@ div#dash-4-right {
 	white-space: nowrap;
 	overflow: hidden;
 }
-.content-detail {
-	display: inline-block;
-	height: 31%;
-	width: 22%;
-	text-align: center;
-	white-space: nowrap;
-	overflow: hidden;
-}
 .title {
 	height: 46%;
 	text-align: center;
 	/* padding: 16%; */
-	padding-top: 16%;
+	padding-top: 22%;
 }
 .data {
 	font-size: 32px;
 	padding: 1%;
-	margin-top: -5%;
-	padding-left: 9%;
+	margin-top: -7%;
 	font-weight: bold;
-}
-.data-ok-detail {
-	font-weight: bold;
-	font-size: 41px;
-	padding: 1%;
-	margin-top: -5%;
-	color: #37A328;
-}
-.title-server-detail {
-	height: 54%;
-	padding-top: 9%;
-	font-size: 37px;
-	font-weight: bold;
-	color: #3C3C3C;
-}
-.title-detail {
-	height: 55%;
-	padding-top: 15%;
-	font-size: 31px;
-	font-weight: bold;
-	color: #3C3C3C;
 }
 
 /* TUILES SERVEUR */
 #dash-content-serveur .title {
 	height: 52%;
-	padding-top: 7%;
-	font-size: 22px;
+	padding-top: 10%;
+	font-size: 15px;
+	font-weight: bold;
 }
 .data-saturation {
 	font-weight: bold;
 	font-size: 26px;
-	padding: 4%;
+	padding: 1%;
 	margin-top: -7%;
 	color: #FF7E3E;
 }
 .data-ok {
 	font-weight: bold;
 	font-size: 32px;
-	padding: 4%;
+	padding: 1%;
 	margin-top: -7%;
 	color: #37A328;
-}
-.data-detail {
-	font-weight: bold;
-	font-size: 39px;
-	padding: -4%;
-	margin-top: -7%;
-	margin-right: -12px;
-	color: #FFFFFF;
 }
 
 
 
 /* COULEUR TUILES */
-div#dash-content-data1 {
+div#dash-content-ram {
 	background-color: #FA6E69;
 }
-div#dash-content-data2 {
+div#dash-content-cpu {
 	background-color: #FFCE74;
 }
-div#dash-content-data3 {
+div#dash-content-uptime {
 	background-color: #97D17A;
 }
-div#dash-content-data4 {
-	background-color: #E6B675;
+div#dash-content-data1 {
+	background-color: #5B608C;
 }
-div#dash-content-data5 {
+div#dash-content-data2 {
 	background-color: #4C8DA6;
 }
-div#dash-content-data6 {
+div#dash-content-data3 {
 	background-color: #E6A023;
 }
 div#dash-content-serveur {
@@ -185,10 +138,10 @@ div#New-Serveur {
 }
 div#Title {
 	font-weight: bold;
-	background-color: #81d7c3;
+	background-color: #AEAFCA;
 	width: 25%;
 	position: relative;
-	padding: 2.5%;
+	padding: 1.5%;
 	margin: 0.1% 0% 0.1% 0%;
 	text-align: center;
 }
@@ -202,14 +155,13 @@ p#New-Serveur-Text {
 	display: inline-block;
 	position: relative;
 	width: 83.6%;
-	background: white;
+	background: #7E7E7E;
 	padding: 1.5%;
 	margin: 0.1% 0.1% 0.1% 0%;	
 	text-align: center;
-	color: #81d7c3;
 }
 a#New-Serveur-Supr {
-	color: white;
+	color: #DB1C1C;
 	float: right;
 	position: relative;
 	width: 8%;
@@ -230,13 +182,11 @@ a#New-Serveur-Add {
 }
 div#Serveur-Title {
 	font-weight: bold;
-	background-color: #81d7c3;
-	width: 25%;
+	background-color: #AEAFCA;
+	width: 100%;
 	position: relative;
-	padding: 2.5%;
+	padding: 0.5%;
 	margin: 0.1% 0% 0.1% 0%;
-	text-align: center;
-	color: white;
 }
 #Serveur-Supr {	
 	color: #DB1C1C;
@@ -244,41 +194,37 @@ div#Serveur-Title {
 	position: relative;
 	width: 8%;
 	background: #FF4C4C;
-	padding: 1.5%;
+	padding: 0.5%;
 	margin: 0.1% 0% 0.1% 0.1%;
 	text-align: center;
-	text-decoration: none;
 }
 #Serveur-Edit {
 	float: right;
 	position: relative;
 	width: 8%;
 	background: #0E8B13;
-	padding: 1.5%;
+	padding: 0.5%;
 	margin: 0.1%;
 	text-align: center;
-	color: white;
-	text-decoration: none;
+	color: #114713;
 }
 #Serveur-Hide {
 	float: right;
 	position: relative;
 	width: 8%;
-	background: #FF7055;
-	padding: 1.5%;
+	background: #C5C5C5;
+	padding: 0.5%;
 	margin: 0.1%;
 	text-align: center;
-	color: white;
-	text-decoration: none;
+	color: #757575;
 }
 p#Serveur-Name {
 	display: inline-block;
 	position: relative;
-	width: 83.3%;
-	background: white;
-	color: #81D7C3;
-	padding: 1.5%;
-	/*margin: 0.1% 0.1% 0.1% 0%;*/
+	width: 75.4%;
+	background: #8BF68F;
+	padding: 0.5%;
+	margin: 0.1% 0.1% 0.1% 0%;
 }
 span#Serveur-Name-Color {
 	font-style: italic;
@@ -302,15 +248,15 @@ div#Edit {
 div#Edit-Name-Change {
 	width: 29%;
 	background-color: #3A4794;
-	font-size: 25px;
+	height: 25%;
 	text-align: center;
 	padding-top: 1.8%;
 }
 div#Edit-Info {
 	width: 70%;
 	background-color: #56943A;
+	height: 25%;
 	text-align: center;
-	font-size: 25px;
 }
 div#Edit-Name {
 	padding-top: 1.8%;
@@ -318,55 +264,64 @@ div#Edit-Name {
 div#Edit-Sondes {
 	width: 99.2%;
 	background-color: #3A8894;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-1 {
 	background-color: #D72424;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-2 {
 	background-color: #833A94;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-3 {
 	background-color: #E6A023;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-4 {
 	background-color: #5B608C;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-5 {
 	background-color: #56943A;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-6 {
 	background-color: #943A3A;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-7 {
 	background-color: #E6A023;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-8 {
 	background-color: #56943A;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
+	padding-top: 1.8%;
 }
 div#Edit-Sondes-Add {
 	width: 33%;
 	background-color: #FF4C4C;
+	height: 25%;
 	text-align: center;
-	padding-top: 2.1%;
-	font-size: 25px;
+	padding-top: 1.8%;
 }
 .content-sondes {
 	display: inline-block;
@@ -375,7 +330,6 @@ div#Edit-Sondes-Add {
 	text-align: center;
 	white-space: nowrap;
 	overflow: hidden;
-	font-size: 25px;
 }
 .desactiver {
 	color: #cccccc;
@@ -400,35 +354,4 @@ select#sonde {
 #nav-boot {
 	border: 1px solid #969696;
 	background-color: white;
-}
-#Edit-Sondes-9 a {
-	color: #EEEEEE !important;
-	text-decoration: none !important;
-}
-div#Return-board {
-	background-color: #FA6E69;
-	height: 32%;
-	padding-top: 5%;
-}
-#Return-board a {
-	color: #3C3C3C;
-	padding-top: 15%;
-	font-size: 31px;
-	font-weight: bold;
-	text-decoration: none;
-}
-a.navbar-brand {
-	font-family: 'Pacifico' !important;
-	font-size: 132% !important;
-}
-ul.nav.navbar-nav {
-	padding-left: 5%;
-}
-
-/* VEX */
-input.vex-dialog-button-primary.vex-dialog-button.vex-first {
-	border-radius: 0px !important;
-}
-input.vex-dialog-button-secondary.vex-dialog-button.vex-last {
-	border-radius: 0px !important;
 }

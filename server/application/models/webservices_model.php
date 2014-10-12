@@ -7,6 +7,13 @@ class Webservices_model extends CI_Model {
 		parent:: __construct();
 	}
 
+	function del_track($key, $type)
+	{
+		$this->db->where('server_key', $key);
+		$this->db->where('type', $type);
+		$this->db->delete('info_server');
+	}
+
 	function get_all_track()
 	{
 		$this->db->select('*');

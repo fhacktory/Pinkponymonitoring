@@ -41,28 +41,39 @@ q:before, q:after {
   content: '';
   content: none; }
 
+h2 {
+  font-family: 'Pacifico' !important;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
 body.remote {
-  background-color: #FAFAFA; }
+  background-color: #355362; }
   body.remote > h1 {
+    font-family: 'Oswald';
     text-align: center;
     font-size: 70px;
-    padding: 5%; }
+    padding: 5%; 
+    color:#fff;}
+     body.remote > h2 {
+    text-align: center;
+    font-size: 70px;
+    padding: 5%; 
+    color:#fff;}
   body.remote .server > li {
     display: inline-block;
     width: 48%;
     margin-left: 1%;
     margin-bottom: 1%;
-    background-color: #0E90D2;
+    background-color: #FA6E69;
     text-align: center;
     padding: 15%; }
     body.remote .server > li:last-child {
       width: 97%;
       padding: 10%;
-      background-color: #5EB95E; }
+      background-color: #97D17A; }
     body.remote .server > li > span {
-      font-size: 24px;
+      font-size: 35px;
       color: #fff; }

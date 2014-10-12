@@ -13,8 +13,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<input type="hidden" id="view" value="<?php echo $view; ?>">;
-	<input type="hidden" id="token" value="<?php echo $token; ?>">;
+	<input type="hidden" id="view" value="<?php echo $view; ?>">
+	<input type="hidden" id="token" value="<?php echo $token; ?>">
 <div id="header">
 	<nav class="navbar navbar-default" role="navigation">
 		<div id="container-fluid">
@@ -38,7 +38,7 @@
 		</div>
 		<?php $i = 1; 
 		foreach ($track as $t) { 
-			if ($i == 4)
+			if ($i == 7)
 				$i = 1;
 		?>
 
@@ -47,6 +47,7 @@
 			<div class="data-detail"><span <?php echo 'id="val-'.$t->server_key.'-'.str_replace(".", "-", $t->type).'"'; ?>></span></div>
 		</div>
 		<?php $i++; } ?>
+		<!-- <div id="Return-board" class="content-detail"><a href="#">Retourner au tableau de bord</a></div> -->
 	</div>
 </div>
 <script type="text/javascript">

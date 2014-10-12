@@ -17,6 +17,17 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function del_track_edit($token, $type)
+	{
+		$array =  array('server_key' => $token, $request => 'del '.$type);
+		$this->Webservices_model->add_quest($array);
+		sleep(5);
+		$this->Webservices_model->del_track($token, $type);
+		$ret = array('ret' => 'success');
+		echo json_encode($ret);
+		exit();
+	}
+
 	public function add_new_track($track, $token)
 	{
 		$array = array('server_key' => $token, 'request' => 'add '.$track);
