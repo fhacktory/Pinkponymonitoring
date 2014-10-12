@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sun Oct 12 02:42:38 2014 camill_n
+// Last update Sun Oct 12 07:54:07 2014 camill_n
 //
 
 #include "../../include/global.hpp"
@@ -33,19 +33,20 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 	      if (this->IsAlreadyEnable(currentRequest[1]) == false)
 		this->currentScript.push_back(currentRequest[1]);
 	    }
-	  // // DEL COMMAND
+	  // DEL COMMAND
 	  if (currentRequest[0].compare("del") == 0)
 	    {
-	      bool	lastElement = false;
-
-	      for (std::vector<string>::iterator it = this->currentScript.begin(); !lastElement && it != this->currentScript.end(); ++it)
+	      //	      for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
 	  	{
-		  if (currentScript.size() == 1 && currentRequest[1].compare((string)*it))
-		    lastElement = true;
-	  	  if (currentRequest[1].compare((string)*it) == 0)
-	  	    {
-	  	      this->currentScript.erase(it);
-	  	    }
+		  //		  std::cout << "NUMBER: " << currentScript.size() << std::endl;
+		  for (int i = 0; i < currentScript.size(); i++)
+		    {
+		      //		      std::cout << "VALUE KEY " << i << " : " << currentScript.at(i) << std::endl;
+		      if (currentRequest[1].compare(this->currentScript.at(i)) == 0)
+			{
+			  this->currentScript.erase(this->currentScript.begin() + i);
+			}
+		    }
 	  	}
 	    }
 	}
@@ -57,7 +58,7 @@ void	ScriptController::ShowScriptEnable()
 {
   cout << "Script Enable:" << endl;
 
-  for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
+  for (std::deque<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
       cout << *it << endl;
     }
@@ -67,7 +68,7 @@ bool	ScriptController::IsAlreadyEnable(string needle)
 {
   string str;
 
-  for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
+  for (std::deque<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
       str = *it;
       if (str.compare(needle) == 0)
@@ -79,7 +80,7 @@ bool	ScriptController::IsAlreadyEnable(string needle)
 bool	ScriptController::SaveResponse(string *saveData, string cmdName, string response)
 {
   saveData->append(cmdName);
-  saveData->append("%20");
+  saveData->append("~");
   saveData->append(response);
   saveData->append(":");
   return (true);
@@ -93,24 +94,24 @@ string *ScriptController::ExecScript(NetworkController *network, ConfigControlle
   string outputFile("test");
   string saveData("");
 
-  for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
+  for (std::deque<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
     {
       formatLine = new string("./scripts/");
       scriptName = *it;
       formatLine->append(scriptName);
       formatLine->append(" >> " + outputFile);
-      cout << "COMMAND EXEC: " << formatLine->data() << endl;
+      //cout << "COMMAND EXEC: " << formatLine->data() << endl;
       system(formatLine->data());
       ifstream file(outputFile.data());
       if (file)
 	{
 	  getline(file, buffer);
-	  cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
+	  //cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
 	  this->SaveResponse(&saveData, scriptName, buffer);
 	  file.close();
 	  remove(outputFile.data());
 	}
-      network->WriteAPI(&saveData, config->GetsetAPI(), config->GetToken());
       free(formatLine);
     }
+  network->WriteAPI(&saveData, config->GetsetAPI(), config->GetToken());
 }

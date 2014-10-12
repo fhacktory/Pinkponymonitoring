@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:36:07 2014 camill_n
-// Last update Sun Oct 12 01:11:51 2014 camill_n
+// Last update Sun Oct 12 02:52:56 2014 camill_n
 //
 
 #ifndef KERNEL_H_
@@ -13,12 +13,13 @@
 
 #include "config.hpp"
 #include "network.hpp"
+#include <deque>
 #include <string>
 
 class ScriptController
 {
 public:
-  vector<string> currentScript;
+  deque<string> currentScript;
   void		ShowScriptEnable();
   bool		ManageRequestStack(NetworkController *network);
   bool		IsAlreadyEnable(string needle);
