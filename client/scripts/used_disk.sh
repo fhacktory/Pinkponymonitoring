@@ -38,7 +38,13 @@ do
    line=`echo $line | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g"`
    used=`echo $line | cut -d ' ' -f 5`
    mount=`echo $line | cut -d ' ' -f 6`
-   echo "$mount:$used"
+   mount=`echo $mount | tr '/' '-'`
+   mount=`echo $mount | tr '/' '-'`
+   mount=`echo $mount | tr '/' '-'`
+   mount=`echo $mount | tr '/' '-'`
+   mount=`echo $mount | tr '/' '-'`
+   echo -n $mount
+   echo "_$used"
 done < $TMP_FILE
 rm $TMP_FILE
 exit 0
