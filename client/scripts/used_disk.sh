@@ -43,6 +43,7 @@ do
    mount=`echo $mount | tr '/' '-'`
    mount=`echo $mount | tr '/' '-'`
    mount=`echo $mount | tr '/' '-'`
+   used=`echo $used | tr -s '%'`
    echo -n $mount
    echo "_$used"
 done < $TMP_FILE
