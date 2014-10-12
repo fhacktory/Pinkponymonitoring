@@ -32,16 +32,15 @@
             	if (response.ret != view)
             	{
             		console.log("val modif");
-            		if (response.ret == 0)
-            		{
+            		if (response.ret == '0')
             			window.location.href = "http://77.194.204.33:11080/PPM/";
-            		}
-            		window.location.href = "http://77.194.204.33:11080/PPM/index.php/home/view/"+token+'/'+response.ret;
+            		else 
+            			window.location.href = "http://77.194.204.33:11080/PPM/index.php/home/view/"+token+'/'+response.ret;
             	}
             }
 	});
 	}
 
-	setInterval(check_view, 500);
+	setInterval(check_view, 200);
 </script>
 </html>

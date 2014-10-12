@@ -1,0 +1,169 @@
+body {
+	background-color: black;
+}
+div#KEYAPI {
+	position: relative;
+	display: block;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-right: 15px;
+	color: #777;
+}
+.navbar {
+	margin-bottom: 0px;
+}
+nav.navbar.navbar-default {
+	margin-bottom: 0px;
+}
+div#header {
+	font-family: 'Oswald';
+	font-size: 22px;
+}
+
+/* DASH */
+div#dash-1 {
+	background-color: red;
+	margin: 2%;
+	position: relative;
+	width: auto;
+	height: 800px;
+}
+div#dash-2 {
+	margin: 2%;
+	position: relative;
+	width: 45%;
+	height: 800px;
+	display: inline-block;
+}
+div#dash-4 {
+	margin: 2%;
+	position: relative;
+	width: 45%;
+	height: 333px;
+	display: inline-block;
+	color: #EEEEEE;
+	background-color: #fff;
+	vertical-align: top;
+}
+
+/* TUILES CONTENT TITLE DATA */
+.content{
+	display: inline-block;
+	height: 36%;
+	width: 21%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.title {
+	height: 46%;
+	text-align: center;
+	/* padding: 16%; */
+	padding-top: 22%;
+	font-size: 16px;
+}
+.data {
+	font-size: 45px;
+	padding: 1%;
+	margin-top: -7%;
+	font-weight: bold;
+}
+
+/* TUILES SERVEUR */
+#dash-content-serveur .title {
+	height: 52%;
+	padding-top: 10%;
+	font-size: 15px;
+	font-weight: bold;
+}
+.data-saturation {
+	font-weight: bold;
+	font-size: 26px;
+	padding: 1%;
+	margin-top: -7%;
+	color: #FF7E3E;
+}
+.data-ok {
+	font-weight: bold;
+	font-size: 32px;
+	padding: 1%;
+	margin-top: -7%;
+	color: #37A328;
+}
+
+
+
+/* COULEUR TUILES */
+div#dash-content-ram {
+	background-color: #FA6E69;
+}
+div#dash-content-cpu {
+	background-color: #FFCE74;
+}
+div#dash-content-uptime {
+	background-color: #97D17A;
+}
+div#dash-content-data1 {
+	background-color: #FA6E69;
+}
+div#dash-content-data4 {
+	background-color: #97D17A;
+}
+div#dash-content-data5 {
+	background-color: #4C8DA6;
+}
+div#dash-content-data2 {
+	background-color: #4C8DA6;
+}
+div#dash-content-data3 {
+	background-color: #E6A023;
+}
+div#dash-content-serveur {
+	width: 34.5%;
+	height: 36%;
+	background-color: #5B608C;
+}
+
+/* ADMINISTRATION */
+div#Admin {
+	width: 100%;
+	height: 94%;
+	position: absolute;
+}
+div#New-Serveur {
+	margin: 1%;
+	padding: 0.5%;
+	background-color: #8AD68A;
+}
+div#Title {
+	font-weight: bold;
+}
+
+/* ADD SERVEUR */
+p#New-Serveur-Text {
+	display: inline-block;
+}
+a#New-Serveur-Supr {
+	color: #DB1C1C;
+	float: right;
+}
+a#New-Serveur-Add {
+	color: #0E8B13;
+	float: right;
+}
+
+#ul-boot {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	min-height: 25px;
+}
+#navli {
+	display: inline;
+	color: black;
+	padding: 1PX;
+}
+#nav-boot {
+	border: 1px solid #969696;
+	background-color: white;
+}

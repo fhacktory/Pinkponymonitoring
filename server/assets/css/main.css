@@ -1,0 +1,394 @@
+body {
+	background-color: #f2d18e;
+	padding: 0px;
+	margin: 0px;
+}
+div#KEYAPI {
+	position: relative;
+	display: block;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-right: 15px;
+	color: #777;
+}
+.navbar {
+	margin-bottom: 0px;
+}
+nav.navbar.navbar-default {
+	margin-bottom: 0px;
+}
+div#header {
+	font-family: 'Oswald';
+	font-size: 22px;
+}
+
+
+/* DASH */
+div#dash {
+	font-family: 'Oswald';
+	font-size: 19px;
+}
+div#dash-1 {
+	margin: 2%;
+	position: relative;
+	width: auto;
+	height: 800px;
+}
+div#dash-2 {
+	margin: 2%;
+	position: relative;
+	width: 45%;
+	height: 800px;
+	display: inline-block;
+}
+div#dash-4 {
+	margin: 2%;
+	position: relative;
+	width: 45%;
+	height: 366px;
+	display: inline-block;
+	color: #EEEEEE;
+	background-color: #000000;
+	vertical-align: top;
+}
+
+/* TUILES CONTENT TITLE DATA */
+.content{
+	display: inline-block;
+	height: 31%;
+	width: 16%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.content-detail {
+	display: inline-block;
+	height: 31%;
+	width: 22%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.title {
+	height: 46%;
+	text-align: center;
+	/* padding: 16%; */
+	padding-top: 22%;
+}
+.data {
+	font-size: 32px;
+	padding: 1%;
+	margin-top: -7%;
+	font-weight: bold;
+}
+.data-ok-detail {
+	font-weight: bold;
+	font-size: 41px;
+	padding: 1%;
+	margin-top: -5%;
+	color: #37A328;
+}
+.title-server-detail {
+	height: 54%;
+	padding-top: 9%;
+	font-size: 37px;
+	font-weight: bold;
+	color: #3C3C3C;
+}
+.title-detail {
+	height: 55%;
+	padding-top: 15%;
+	font-size: 31px;
+	font-weight: bold;
+	color: #3C3C3C;
+}
+
+/* TUILES SERVEUR */
+#dash-content-serveur .title {
+	height: 52%;
+	padding-top: 10%;
+	font-size: 15px;
+	font-weight: bold;
+}
+.data-saturation {
+	font-weight: bold;
+	font-size: 26px;
+	padding: 1%;
+	margin-top: -7%;
+	color: #FF7E3E;
+}
+.data-ok {
+	font-weight: bold;
+	font-size: 32px;
+	padding: 1%;
+	margin-top: -7%;
+	color: #37A328;
+}
+.data-detail {
+	font-weight: bold;
+	font-size: 39px;
+	padding: -4%;
+	margin-top: -7%;
+	margin-right: -12px;
+	color: #FFFFFF;
+}
+
+
+
+/* COULEUR TUILES */
+div#dash-content-ram {
+	background-color: #FA6E69;
+}
+div#dash-content-cpu {
+	background-color: #FFCE74;
+}
+div#dash-content-uptime {
+	background-color: #97D17A;
+}
+div#dash-content-data1 {
+	background-color: #E6B675;
+}
+div#dash-content-data2 {
+	background-color: #4C8DA6;
+}
+div#dash-content-data3 {
+	background-color: #E6A023;
+}
+div#dash-content-serveur {
+	width: 32.5%;
+	height: 31%;
+	background-color: #5B608C;
+}
+
+/* ADMINISTRATION */
+div#Admin {
+	width: 100%;
+	height: 94%;
+	position: absolute;
+	font-family: 'Oswald';
+	font-size: 19px;
+	color: white;
+}
+div#New-Serveur {
+	margin: 1% 1% 0% 1%;
+	padding: 0.5% 0.5% 0% 0.5%;
+}
+div#Title {
+	font-weight: bold;
+	background-color: #AEAFCA;
+	width: 25%;
+	position: relative;
+	padding: 1.5%;
+	margin: 0.1% 0% 0.1% 0%;
+	text-align: center;
+}
+div#Serveur {
+	margin: 0% 1% 0% 1%;
+	padding: 0% 0.5% 0% 0.5%;
+}
+
+/* ADD SERVEUR */
+p#New-Serveur-Text {
+	display: inline-block;
+	position: relative;
+	width: 83.6%;
+	background: #7E7E7E;
+	padding: 1.5%;
+	margin: 0.1% 0.1% 0.1% 0%;	
+	text-align: center;
+}
+a#New-Serveur-Supr {
+	color: #DB1C1C;
+	float: right;
+	position: relative;
+	width: 8%;
+	background: #FF4C4C;
+	padding: 1.5%;
+	margin: 0.1% 0% 0.1% 0.1%;
+	text-align: center;
+}
+a#New-Serveur-Add {
+	color: #E4FFE5;
+	float: right;
+	position: relative;
+	width: 8%;
+	padding: 1.5%;
+	margin: 0.1%;
+	background: #0E8B13;
+	text-align: center;
+}
+div#Serveur-Title {
+	font-weight: bold;
+	background-color: #AEAFCA;
+	width: 100%;
+	position: relative;
+	padding: 0.5%;
+	margin: 0.1% 0% 0.1% 0%;
+}
+#Serveur-Supr {	
+	color: #DB1C1C;
+	float: right;
+	position: relative;
+	width: 8%;
+	background: #FF4C4C;
+	padding: 0.5%;
+	margin: 0.1% 0% 0.1% 0.1%;
+	text-align: center;
+}
+#Serveur-Edit {
+	float: right;
+	position: relative;
+	width: 8%;
+	background: #0E8B13;
+	padding: 0.5%;
+	margin: 0.1%;
+	text-align: center;
+	color: #114713;
+}
+#Serveur-Hide {
+	float: right;
+	position: relative;
+	width: 8%;
+	background: #C5C5C5;
+	padding: 0.5%;
+	margin: 0.1%;
+	text-align: center;
+	color: #757575;
+}
+p#Serveur-Name {
+	display: inline-block;
+	position: relative;
+	width: 75.4%;
+	background: #8BF68F;
+	padding: 0.5%;
+	margin: 0.1% 0.1% 0.1% 0%;
+}
+span#Serveur-Name-Color {
+	font-style: italic;
+	color: #7C7A7A;
+}
+
+/* EDIT */
+div#Edit {
+	font-family: 'Oswald';
+	font-size: 19px;
+}
+#Edit-Content {
+	margin: 2%;
+	position: relative;
+	width: 96%;
+	height: 366px;
+	display: inline-block;
+	color: #EEEEEE;
+	vertical-align: top;
+}
+div#Edit-Name-Change {
+	width: 29%;
+	background-color: #3A4794;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Info {
+	width: 70%;
+	background-color: #56943A;
+	height: 25%;
+	text-align: center;
+}
+div#Edit-Name {
+	padding-top: 1.8%;
+}
+div#Edit-Sondes {
+	width: 99.2%;
+	background-color: #3A8894;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-1 {
+	background-color: #D72424;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-2 {
+	background-color: #833A94;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-3 {
+	background-color: #E6A023;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-4 {
+	background-color: #5B608C;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-5 {
+	background-color: #56943A;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-6 {
+	background-color: #943A3A;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-7 {
+	background-color: #E6A023;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-8 {
+	background-color: #56943A;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+div#Edit-Sondes-Add {
+	width: 33%;
+	background-color: #FF4C4C;
+	height: 25%;
+	text-align: center;
+	padding-top: 1.8%;
+}
+.content-sondes {
+	display: inline-block;
+	height: 31%;
+	width: 16.35%;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.desactiver {
+	color: #cccccc;
+}
+select#sonde {
+	width: 100%;
+	height: 35px;
+
+}
+/* NAVS */
+#ul-boot {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	min-height: 25px;
+}
+#navli {
+	display: inline;
+	color: black;
+	padding: 1PX;
+}
+#nav-boot {
+	border: 1px solid #969696;
+	background-color: white;
+}
