@@ -5,10 +5,11 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:40:28 2014 camill_n
-// Last update Sun Oct 12 01:22:53 2014 camill_n
+// Last update Sun Oct 12 02:33:30 2014 camill_n
 //
 
 #include <curl/curl.h>
+#include <stdlib.h>
 #include "../../include/network.hpp"
 #include "../../include/config.hpp"
 
@@ -58,6 +59,7 @@ bool	NetworkController::ReadAPI(string *getAPI, string *token)
 
       // Put each requests in requestStack
       Split(this->requestStack, readBuffer, ';');
+      free(formatedAddr);
       return (true);
     }
   return (false);
@@ -68,18 +70,18 @@ bool	NetworkController::WriteAPI(string *dataToSend, string *setAPI, string *tok
   CURL		*curl;
   CURLcode	res;
   string	readBuffer;
-  string	*formatedAddr;
+  string	formatedAddr;
 
   curl = curl_easy_init();
   if (curl)
     {
       // Get response from Get API
-      formatedAddr = new string(*setAPI);
-      formatedAddr->append(*token);
-      formatedAddr->append("/");
-      formatedAddr->append(*dataToSend);
-      cout << "ENVOIE: " << *formatedAddr << endl;
-      curl_easy_setopt(curl, CURLOPT_URL, formatedAddr->data());
+      formatedAddr.append(*setAPI);
+      formatedAddr.append(*token);
+      formatedAddr.append("/");
+      formatedAddr.append(*dataToSend);
+      cout << "ENVOIE: " << formatedAddr << endl;
+      curl_easy_setopt(curl, CURLOPT_URL, formatedAddr.data());
       curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallBack);
       curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
       res = curl_easy_perform(curl);

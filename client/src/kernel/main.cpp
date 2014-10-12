@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 13:41:31 2014 camill_n
-// Last update Sun Oct 12 01:11:15 2014 camill_n
+// Last update Sun Oct 12 02:26:32 2014 camill_n
 //
 
 #include <iostream>
@@ -28,24 +28,22 @@ void	daemon(KernelController *kernel)
       kernel->script->ManageRequestStack(kernel->network);
       //kernel->script->ShowScriptEnable();
       kernel->script->ExecScript(kernel->network, kernel->config);
-      usleep(1000000);
+      usleep(20000);
       ++i;
     }
-}
-
-void	init_components(KernelController *kernel)
-{
-  kernel->network = new NetworkController();
-  kernel->config = new ConfigController(kernel->network);
-  kernel->script = new ScriptController();
 }
 
 int	main(int ac, char **av)
 {
   KernelController *kernel;
+  NetworkController network;
+  ConfigController config(&network);
+  ScriptController script;
 
   kernel = new KernelController();
-  init_components(kernel);
+  kernel->network = &network;
+  kernel->config = &config;
+  kernel->script = &script;
   daemon(kernel);
   return (0);
 }

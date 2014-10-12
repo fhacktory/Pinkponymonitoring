@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Sun Oct 12 01:15:52 2014 camill_n
+// Last update Sun Oct 12 02:24:40 2014 camill_n
 //
 
 #include <iostream>
@@ -136,4 +136,12 @@ ConfigController::ConfigController(NetworkController *network)
     }
   else
     cout << this->token->data() << endl;
+}
+
+ConfigController::~ConfigController()
+{
+  free(this->addAPI);
+  free(this->getAPI);
+  free(this->setAPI);
+  free(this->token);
 }

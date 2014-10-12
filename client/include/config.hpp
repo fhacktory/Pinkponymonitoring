@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:25:22 2014 camill_n
-// Last update Sat Oct 11 21:44:55 2014 camill_n
+// Last update Sun Oct 12 02:16:30 2014 camill_n
 //
 
 #ifndef CONFIG_H_
@@ -26,6 +26,7 @@ private:
 
 public:
   ConfigController(NetworkController *network);
+  virtual ~ConfigController();
   void	 SetToken(string *addr);
   string *GetToken();
   void	 SetAddAPI(string *addr);

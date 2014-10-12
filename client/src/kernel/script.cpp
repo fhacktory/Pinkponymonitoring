@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sun Oct 12 01:37:04 2014 camill_n
+// Last update Sun Oct 12 02:42:38 2014 camill_n
 //
 
 #include "../../include/global.hpp"
@@ -34,18 +34,20 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 		this->currentScript.push_back(currentRequest[1]);
 	    }
 	  // // DEL COMMAND
-	  // if (currentRequest[0].compare("del") == 0)
-	  //   {
-	  //     bool	lastElement = false;
+	  if (currentRequest[0].compare("del") == 0)
+	    {
+	      bool	lastElement = false;
 
-	  //     for (std::vector<string>::iterator it = this->currentScript.begin(); !lastElement && it != this->currentScript.end(); ++it)
-	  // 	{
-	  // 	  if (currentRequest[1].compare((string)*it) == 0)
-	  // 	    {
-	  // 	      this->currentScript.erase(it);
-	  // 	    }
-	  // 	}
-	  //   }
+	      for (std::vector<string>::iterator it = this->currentScript.begin(); !lastElement && it != this->currentScript.end(); ++it)
+	  	{
+		  if (currentScript.size() == 1 && currentRequest[1].compare((string)*it))
+		    lastElement = true;
+	  	  if (currentRequest[1].compare((string)*it) == 0)
+	  	    {
+	  	      this->currentScript.erase(it);
+	  	    }
+	  	}
+	    }
 	}
     }
   return (true);
