@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sun Oct 12 07:54:07 2014 camill_n
+// Last update Sun Oct 12 09:01:53 2014 camill_n
 //
 
 #include "../../include/global.hpp"
@@ -36,12 +36,9 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 	  // DEL COMMAND
 	  if (currentRequest[0].compare("del") == 0)
 	    {
-	      //	      for (std::vector<string>::iterator it = this->currentScript.begin(); it != this->currentScript.end(); ++it)
 	  	{
-		  //		  std::cout << "NUMBER: " << currentScript.size() << std::endl;
 		  for (int i = 0; i < currentScript.size(); i++)
 		    {
-		      //		      std::cout << "VALUE KEY " << i << " : " << currentScript.at(i) << std::endl;
 		      if (currentRequest[1].compare(this->currentScript.at(i)) == 0)
 			{
 			  this->currentScript.erase(this->currentScript.begin() + i);
@@ -49,6 +46,10 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 		    }
 	  	}
 	    }
+	  // if (currentRequest[0].compare("exec") == 0)
+	  //   {
+	      
+	  //   }
 	}
     }
   return (true);
