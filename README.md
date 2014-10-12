@@ -25,5 +25,7 @@ Important part:
 API (Token Generation, Request Stack, Response stack)
 Remote control (view)
 
-Have fun :)
+Have fun
+
+Fuck The mother funcking pony !
 
