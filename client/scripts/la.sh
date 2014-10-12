@@ -35,5 +35,5 @@ fi
 
 
 # EXEC
-cat scripts/src/top.data | grep 'top -' | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | sed -e "s/  / /g" | cut -d ' ' -f 10 | tr ',' '.'
+cat scripts/src/top.data | grep 'top -' | tr -s ' ' | cut -d ' ' -f 11 | tr ',' '.' | cut -d '.' -f 1-2
 exit 0
