@@ -5,7 +5,7 @@
 ## Login   <bogira_j@epitech.net>
 ## 
 ## Started on  Wed Jun 25 20:03:09 2014 Bogiraud Julien
-## Last update Sun Oct 12 00:53:54 2014 camill_n
+## Last update Wed Oct 15 22:24:55 2014 camill_n
 ##
 
 CC                  =	g++ -O3
@@ -26,6 +26,7 @@ SRC_PPM	            =	$(DIR_PPM)kernel/main.cpp \
 			$(DIR_PPM)kernel/script.cpp \
 			$(DIR_PPM)network/network.cpp \
 			$(DIR_PPM)config/config.cpp \
+			$(DIR_PPM)config/config_getset.cpp \
 
 OBJ_PPM:=         $(SRC_PPM:$(DIR_PPM)%.cpp=$(DIR_PPM)%.o)
 

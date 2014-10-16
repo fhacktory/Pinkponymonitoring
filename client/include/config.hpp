@@ -5,13 +5,14 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 14:25:22 2014 camill_n
-// Last update Sun Oct 12 02:16:30 2014 camill_n
+// Last update Wed Oct 15 22:56:53 2014 camill_n
 //
 
 #ifndef CONFIG_H_
 # define CONFIG_H_
 
 #include <iostream>
+#include <map>
 #include "network.hpp"
 
 using namespace std;
@@ -19,24 +20,16 @@ using namespace std;
 class ConfigController
 {
 private:
-  string *addAPI;
-  string *getAPI;
-  string *setAPI;
-  string *token;
+  map<string, string> currentConfig;
 
 public:
   ConfigController(NetworkController *network);
   virtual ~ConfigController();
-  void	 SetToken(string *addr);
-  string *GetToken();
-  void	 SetAddAPI(string *addr);
-  string *GetAddAPI();
-  void	 SetGetAPI(string *addr);
-  string *GetGetAPI();
-  void	 SetsetAPI(string *addr);
-  string *GetsetAPI();
+  string *getConfig(string configName);
   string *GetDataInFile(string *fileName, string *dataName);
   void	 SetDataInFile(string *fileName, string *dataName, string *dataValue);
+  bool	ReadConfig();
+  bool	getAllDataInFile(string fileName, map<string, string> *splitTab);
 };
 
 int	Split(vector<string>&vecteur, string buffer, char sep);

@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 22:08:25 2014 camill_n
-// Last update Sun Oct 12 09:01:53 2014 camill_n
+// Last update Thu Oct 16 22:46:39 2014 camill_n
 //
 
 #include "../../include/global.hpp"
@@ -14,7 +14,7 @@
 #include <string>
 #include <fstream>
 
-bool		ScriptController::ManageRequestStack(NetworkController *network)
+bool		ScriptController::ManageRequestStack(NetworkController *network, ConfigController *config)
 {
   vector<string>	currentRequest;
   string		request;
@@ -46,10 +46,10 @@ bool		ScriptController::ManageRequestStack(NetworkController *network)
 		    }
 	  	}
 	    }
-	  // if (currentRequest[0].compare("exec") == 0)
-	  //   {
-	      
-	  //   }
+	  if (currentRequest[0].compare("exec") == 0)
+	    {
+	      //this->ExecCmd(network, config, currentRequest[1]);
+	    }
 	}
     }
   return (true);
@@ -101,18 +101,42 @@ string *ScriptController::ExecScript(NetworkController *network, ConfigControlle
       scriptName = *it;
       formatLine->append(scriptName);
       formatLine->append(" >> " + outputFile);
-      //cout << "COMMAND EXEC: " << formatLine->data() << endl;
+      cout << "COMMAND EXEC: " << formatLine->data() << endl;
       system(formatLine->data());
       ifstream file(outputFile.data());
       if (file)
 	{
 	  getline(file, buffer);
-	  //cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
+	  cout << "REPONSE COMMANDE: " << scriptName.data() << endl << buffer << endl;
 	  this->SaveResponse(&saveData, scriptName, buffer);
 	  file.close();
 	  remove(outputFile.data());
 	}
       free(formatLine);
     }
-  network->WriteAPI(&saveData, config->GetsetAPI(), config->GetToken());
+  network->WriteAPI(&saveData, config->getConfig("SET_API"), config->getConfig("TOKEN"));
+}
+
+void ScriptController::ExecCmd(NetworkController *network, ConfigController *config, string *cmdToExec)
+{
+  string cmd("");
+  string buffer;
+  string outputFile("test");
+  string saveData("");
+
+  cmd.append(*cmdToExec);
+  cmd.append(" >> test");
+  system(cmd.data());
+  ifstream file(outputFile.data());
+  if (file)
+    {
+      while (getline(file, buffer))
+	{
+	  saveData.append(buffer);
+	}
+      file.close();
+      remove(outputFile.data());
+    }
+  cout << "REPONSE COMMANDE: " << cmd.data() << endl << saveData << endl;
+  network->WriteAPI(&saveData, config->getConfig("GET_API"), config->getConfig("TOKEN"));
 }

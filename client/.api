@@ -1,2 +1,3 @@
-add,http;
-set,
+ADD_API=http://77.194.204.33:11080/PPM/index.php/API/add_new_client/
+GET_API=http://77.194.204.33:11080/PPM/index.php/API/send_info_server/
+SET_API=http://77.194.204.33:11080/PPM/index.php/API/push_track/

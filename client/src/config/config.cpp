@@ -5,7 +5,7 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Sun Oct 12 02:24:40 2014 camill_n
+// Last update Thu Oct 16 23:05:59 2014 camill_n
 //
 
 #include <iostream>
@@ -15,48 +15,9 @@
 #include <string>
 #include <stdlib.h>
 #include "../../include/global.hpp"
+#include <map>
 
 using namespace std;
-
-void 	ConfigController::SetToken(string *token)
-{
-  this->token = token;
-}
-
-string 	*ConfigController::GetToken()
-{
-  return (this->token);
-}
-
-void 	ConfigController::SetAddAPI(string *addr)
-{
-  this->addAPI = addr;
-}
-
-string 	*ConfigController::GetAddAPI()
-{
-  return (this->addAPI);
-}
-
-void 	ConfigController::SetGetAPI(string *addr)
-{
-  this->getAPI = addr;
-}
-
-string 	*ConfigController::GetGetAPI()
-{
-  return (this->getAPI);
-}
-
-void 	ConfigController::SetsetAPI(string *addr)
-{
-  this->setAPI = addr;
-}
-
-string 	*ConfigController::GetsetAPI()
-{
-  return (this->setAPI);
-}
 
 int Split(vector<string>& vecteur, string chaine, char sep)
 {
@@ -98,6 +59,29 @@ string	*ConfigController::GetDataInFile(string *fileName, string *dataName)
   return (NULL);
 }
 
+bool		ConfigController::getAllDataInFile(string fileName, map<string, string> *splitTab)
+{
+  ifstream		file(fileName.data());
+  string		buffer;
+  vector<string>	splitLine;
+  int			nbSplit;
+
+  if (file)
+    {
+      while (getline(file, buffer) != NULL)
+      	{
+      	  nbSplit = Split(splitLine, buffer, '=');
+      	  if (nbSplit == 2)
+      	    {
+	      cout << "   -> " << splitLine[0] << "= "<< splitLine[1] << endl;
+	      splitTab->insert(pair<string, string>(splitLine[0],splitLine[1]));
+      	    }
+      	}
+      file.close();
+    }
+  return (true);
+}
+
 void	ConfigController::SetDataInFile(string *fileName, string *dataName, string *dataValue)
 {
   ofstream		file(fileName->data());
@@ -109,39 +93,36 @@ void	ConfigController::SetDataInFile(string *fileName, string *dataName, string 
     }
 }
 
+bool	ConfigController::ReadConfig()
+{
+  cout << "- Reading configurations..." << endl;
+  cout << "  -> Reading API file (.api)..." << endl;
+  this->getAllDataInFile(".api", &this->currentConfig);
+  cout << "  -> Reading TOKEN file (.token)..." << endl;
+  this->getAllDataInFile(".token", &this->currentConfig);
+  return (true);
+}
+
 ConfigController::ConfigController(NetworkController *network)
 {
   string *token;
 
-  token = this->GetDataInFile(new string(".token"), new string("token"));
-
-  //TODO: CONFIG API ADDR
-  this->addAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/add_new_client/");
-  this->getAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/send_info_server/");
-  this->setAPI = new string("http://77.194.204.33:11080/PPM/index.php/API/push_track/");
-  if (token)
+  //Read all config for the session
+  this->ReadConfig();
+  if (!this->getConfig("TOKEN"))
     {
-      this->token = token;
+      cout << "- Token unfound... Generating new token..." << endl;
+      token = network->GenerateNewToken(this->getConfig("ADD_API"));
+      if (token == NULL)
+	{
+	  cout << "Token server Down and any configuration in .token" << endl;
+	  exit(EXIT_FAILURE);
+	}
+      cout << "  -> Generation ok !" << endl;
+      this->currentConfig.insert(pair<string, string>("TOKEN", *token));
     }
-  else
-    {
-      this->token = network->GenerateNewToken(this->addAPI);
-      this->SetDataInFile(new string(".token"), new string("token"), this->token);
-    }
-
-  if (!this->token)
-    {
-      cout << "Token server Down and any configuration in .token" << endl;
-      exit(EXIT_FAILURE);
-    }
-  else
-    cout << this->token->data() << endl;
 }
 
 ConfigController::~ConfigController()
 {
-  free(this->addAPI);
-  free(this->getAPI);
-  free(this->setAPI);
-  free(this->token);
 }
