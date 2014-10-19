@@ -5,12 +5,12 @@
 // Login   <camill_n@epitech.net>
 //
 // Started on  Sat Oct 11 15:41:48 2014 camill_n
-// Last update Thu Oct 16 23:05:59 2014 camill_n
+// Last update Sun Oct 19 18:26:39 2014 camill_n
 //
 
-#include <iostream>
 #include <ios>
 #include <vector>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <stdlib.h>
@@ -82,37 +82,75 @@ bool		ConfigController::getAllDataInFile(string fileName, map<string, string> *s
   return (true);
 }
 
-void	ConfigController::SetDataInFile(string *fileName, string *dataName, string *dataValue)
+bool		ConfigController::getAllDataInFile(string fileName, KernelController *config)
 {
-  ofstream		file(fileName->data());
+  ifstream		file(fileName.data());
+  string		buffer;
+  vector<string>	splitLine;
+  int			nbSplit;
 
   if (file)
     {
-      file << dataName->data() << "," << dataValue->data() << endl;
+      while (getline(file, buffer) != NULL)
+      	{
+	  cout << "   -> " << buffer << endl;
+	  config->script->currentScript.push_back(buffer);
+      	}
+      file.close();
+    }
+  else
+    cout << "File unfound: " << fileName << endl;
+  return (true);
+}
+
+void	ConfigController::SaveData(string fileName, char sep, map<string, string> *splitTab)
+{
+ofstream		file(fileName.data(), ios::out | ios::trunc);
+
+  if (file)
+    {
+      for(std::map<string, string>::iterator it=splitTab->begin() ; it!=splitTab->end() ; ++it)
+	{
+	  file << it->first << sep << it->second << endl;
+	}
       file.close();
     }
 }
 
-bool	ConfigController::ReadConfig()
+void	ConfigController::SaveData(string fileName, deque<string> *splitTab)
+{
+ofstream		file(fileName.data(), ios::out | ios::trunc);
+
+  if (file)
+    {
+      for(std::deque<string>::iterator it=splitTab->begin() ; it!=splitTab->end() ; ++it)
+	{
+	  file << *it << endl;
+	}
+      file.close();
+    }
+}
+
+bool	ConfigController::ReadConfig(KernelController *kernel)
 {
   cout << "- Reading configurations..." << endl;
-  cout << "  -> Reading API file (.api)..." << endl;
-  this->getAllDataInFile(".api", &this->currentConfig);
-  cout << "  -> Reading TOKEN file (.token)..." << endl;
-  this->getAllDataInFile(".token", &this->currentConfig);
+  cout << "  -> Reading config file (.config)..." << endl;
+  this->getAllDataInFile(".config", &this->currentConfig);
+  cout << "  -> Reading SCRIPTS enable file (.script)..." << endl;
+  this->getAllDataInFile(".script", kernel);
   return (true);
 }
 
-ConfigController::ConfigController(NetworkController *network)
+ConfigController::ConfigController(KernelController *kernel)
 {
   string *token;
 
   //Read all config for the session
-  this->ReadConfig();
+  this->ReadConfig(kernel);
   if (!this->getConfig("TOKEN"))
     {
       cout << "- Token unfound... Generating new token..." << endl;
-      token = network->GenerateNewToken(this->getConfig("ADD_API"));
+      token = kernel->network->GenerateNewToken(this->getConfig("ADD_API"));
       if (token == NULL)
 	{
 	  cout << "Token server Down and any configuration in .token" << endl;

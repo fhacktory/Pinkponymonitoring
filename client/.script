@@ -1,0 +1,6 @@
+cpu.sh
+used_ram.sh
+used_disk.sh
+la.sh
+io_disk.sh
+nb_user.sh

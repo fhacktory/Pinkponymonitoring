@@ -5,10 +5,10 @@
 ## Login   <bogira_j@epitech.net>
 ## 
 ## Started on  Wed Jun 25 20:03:09 2014 Bogiraud Julien
-## Last update Wed Oct 15 22:24:55 2014 camill_n
+## Last update Sun Oct 19 17:09:25 2014 camill_n
 ##
 
-CC                  =	g++ -O3
+CC                  =	g++ -O3 -g3
 
 RM                  =   rm -f
 
@@ -35,10 +35,10 @@ OBJ_PPM:=         $(SRC_PPM:$(DIR_PPM)%.cpp=$(DIR_PPM)%.o)
 all: $(PPM)
 
 $(DIR_BOMBERMAN)%.o: $(DIR_PPM)%.cpp
-	@$(CC) -c -g $< -o $@ -I$(INCLUDE_PPM) $(CFLAGS)
+	@$(CC) -c $< -o $@ -I$(INCLUDE_PPM) $(CFLAGS)
 
 $(PPM): $(OBJ_PPM)
-	@$(CC) -g $^ -o $@ $(CLIB)
+	@$(CC) $^ -o $@ $(CLIB)
 	@echo -e "\033[32m\t$(PPM)\t DONE !\033[0m"
 
 clean:
